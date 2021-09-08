@@ -6,6 +6,6 @@ const bookRouter = express.Router();
 
 
 bookRouter.post("/createbook", CreatNewBook);
-
+bookRouter.get("/", getAllBooks); 
 
 module.exports = userRouter;
