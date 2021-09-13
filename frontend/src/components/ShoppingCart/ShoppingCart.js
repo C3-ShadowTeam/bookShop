@@ -12,6 +12,36 @@ export const ShoppingCart = () => {
 
 
 
+  const getBooks = ()=>{
+    axios.get("http://localhost:5000/cart",{headers:{Authorization: `Bearer ${token}` }})
+    .then((result)=>{
+     setBook(result.data.message)
+     setPrice(result.data.message.reduce((acc,elem,i)=>{
+       return acc + parseInt((elem.bookId.price),10)
+     },0))
+    }).catch((err)=>{setBook([])
+      setPrice(0)
+       console.log("servr error")})
+  }
+  
+  // useEffect(() => {
+
+  //   axios.get("http://localhost:5000/cart",{
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //   }))
+  //   .then((res) => {
+  //    setBook(res.data.message) 
+  //    console.log(res.data.message)
+  //   });
+  // }, [book]);
+
+  useEffect((
+  )=>{getBooks()},[book])
+
+  
+
 
 
 

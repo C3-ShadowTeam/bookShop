@@ -6,10 +6,7 @@ import { Register } from './components/auth/signUp';
 import { AllBook } from './components/book/Book';
 import { Search } from './components/search/Search';
 import { ShoppingCart } from './components/ShoppingCart/ShoppingCart';
-
-import {FavBage}from "./components/FavBage/FavBage"
-
-
+import { Logout } from './components/logout/Logout';
 export const userContext = createContext();
 
 
@@ -29,9 +26,7 @@ const state={token,setToken}
 <Route path = '/home' component = {AllBook} />
 <Route path = '/search' component = {Search} />
 <Route path = '/cart' component = {ShoppingCart} />
-
-<Route path = '/Favourite' component = {FavBage} />
-
+<Route path = '/logout' component = {Logout} />
 
 </Switch>
 
