@@ -69,7 +69,9 @@ export const ShoppingCart = () => {
       setPrice(price / 2);
       setStatus(<BsCheckCircle></BsCheckCircle>);
     } else {
-      return;
+      setPrice(book.reduce((acc, elem, i) => {
+        return acc + parseInt(elem.bookId.price, 10);
+      }, 0))
     }
   };
   return (
