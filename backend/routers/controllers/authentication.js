@@ -4,8 +4,9 @@ const bcrypt = require("bcrypt")
 require("dotenv").config();
 const { OAuth2Client } = require("google-auth-library");
 const client = new OAuth2Client(
-  "517614289407-55p7q5bogii5ln2l6qevnribl05519kn.apps.googleusercontent.com"
+  "831343529176-d16rhc56dha5digsv3pt76cej56qnqdm.apps.googleusercontent.com"
 );
+831343529176-d16rhc56dha5digsv3pt76cej56qnqdm.apps.googleusercontent.com
 
 const Login = (req, res) => {
   const email = req.body.email.toLowerCase();
@@ -46,6 +47,8 @@ const Login = (req, res) => {
     } catch (error) {
         throw new Error(error.message);
     }
+
+    
   
   })
   .catch((err) => {
@@ -59,7 +62,7 @@ const Login = (req, res) => {
 
 const loginWithGoogle=async(req,res)=>{
   const tokenId=req.body.tokenId
-  client.verifyIdToken({idToken:tokenId,audience:"517614289407-55p7q5bogii5ln2l6qevnribl05519kn.apps.googleusercontent.com"})
+  client.verifyIdToken({idToken:tokenId,audience:"831343529176-d16rhc56dha5digsv3pt76cej56qnqdm.apps.googleusercontent.com"})
   .then(response=>{
     console.log(response);
     const {email_verified,given_name,family_name,email}=response.payload
