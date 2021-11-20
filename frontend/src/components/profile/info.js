@@ -1,8 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { userContext } from "../../App";
 import "./profile.css";
-import ImageUploading from "react-images-uploading";
+
 import axios from "axios";
+
+import "./info.css";
+import { Form,Row,Col,Button } from "react-bootstrap";
+import swal from "sweetalert";
+//important for getting nice style.
 
 export const Info = () => {
   const [info, setInfo] = useState([]);
@@ -16,13 +21,18 @@ export const Info = () => {
   const token = state.token;
   const [images, setImages] = useState([]);
   const maxNumber = 69;
+  const [imageSrc, setImageSrc] = useState()
+
+  const handleImageSelect = (e) => {
+    setImageSrc(URL.createObjectURL(e.target.files[0]))
+  }
   const onChange = (imageList, addUpdateIndex) => {
     setImages(imageList);
   };
   useEffect(() => {
     axios
       .get(
-        "https://c3-bookshop.herokuapp.com/users",
+        "http://localhost:5000/users",
 
         {
           headers: {
@@ -35,9 +45,10 @@ export const Info = () => {
       });
   }, []);
   const updateInfo = () => {
+    console.log(date);
     axios
-      .post(
-        "https://c3-bookshop.herokuapp.com/users/update",
+      .put(
+        "http://localhost:5000/users/update",
         {
           firstName: firstName,
           lastName: lastName,
@@ -54,91 +65,109 @@ export const Info = () => {
       )
       .then((res) => {
         setInfo([...res.data.userInfo]);
-        setMessage(res.data.message);
+        swal({
+          title: "success update your information ",
+          icon: "success",
+          button: "OK",
+        });
+      }) .catch((err) => {
+        console.log(err);
+        
       });
   };
   return (
-    <div>
-      <div>
-        {info &&
+    <div className="userProfile">
+    <div className="leftdiv">
+      <div className="profileImg">
+       
+        <img
+              className="imgProfile"
+              src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+            />
+      
+      
+      </div>
+      <h4 className="NameOfUser">
+        
+      </h4>
+    </div>
+
+    <div className="imgAndInfo">
+      <div className="middleDiv">
+      
+      <h5 className="details2">
+     
+     
+      <div className="">
+      {info &&
           info.map((element, index) => {
             return (
-              <div>
-                <div key={element._id} className="myprofile">
-                  <div>
-                    <ImageUploading
-                      multiple
-                      value={images}
-                      onChange={onChange}
-                      maxNumber={maxNumber}
-                      dataURLKey="data_url"
-                    >
-                      {({
-                        imageList,
-                        onImageUpload,
-
-                        dragProps,
-                      }) => (
-                        <div>
-                          {imageList.map((image, index) => (
-                            <div key={index} className="image-item">
-                              <img src={image.data_url} alt="" />
-                            </div>
-                          ))}
-                          <button onClick={onImageUpload} {...dragProps}>
-                            uploading image
-                          </button>
-                        </div>
-                      )}
-                    </ImageUploading>
-                  </div>
-                  <label>firstName</label>{" "}
-                  <input
-                    type="text"
-                    defaultValue={element.firstName}
-                    onChange={(e) => {
+              <Form>
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="formGridEmail">
+                  <Form.Label>FirstName</Form.Label>
+                  <Form.Control type="text" placeholder="Enter FirstName" defaultValue={element.firstName}  onChange={(e) => {
                       setFirstName(e.target.value);
-                    }}
-                  ></input>
-                  <label>lastName</label>
-                  <input
-                    type="text"
-                    defaultValue={element.lastName}
+                    }}/>
+                </Form.Group>
+            
+                <Form.Group as={Col} controlId="formGridPassword">
+                  <Form.Label>LastName</Form.Label>
+                  <Form.Control type="text" placeholder="Enter LastName"  defaultValue={element.lastName}
                     onChange={(e) => {
                       setLastName(e.target.value);
-                    }}
-                  ></input>
-                  <label>phone</label>{" "}
-                  <input
-                    type="text"
-                    defaultValue={element.phoneNumber}
+                    }} />
+                </Form.Group>
+              </Row>
+            
+              <Form.Group className="mb-3" controlId="formGridAddress1">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control placeholder="1234"   defaultValue={element.phoneNumber}
                     onChange={(e) => {
                       setPhone(e.target.value);
-                    }}
-                  ></input>
-                  <label>BirthDate</label>{" "}
-                  <input
-                    type="date"
-                    defaultValue={element.BirthDate}
+                    }} />
+              </Form.Group>
+            
+              <Form.Group className="mb-3" controlId="formGridAddress2">
+                <Form.Label>BirthDate</Form.Label>
+                <Form.Control  type="date"  defaultValue={element.BirthDate}
                     onChange={(e) => {
                       setDate(e.target.value);
-                    }}
-                  ></input>
-                  <label>country</label>{" "}
-                  <input
-                    type="text"
-                    defaultValue={element.country}
+                    }} />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGridAddress2">
+                <Form.Label>Country</Form.Label>
+                <Form.Control  placeholder="Your country" defaultValue={element.country}
                     onChange={(e) => {
                       setCountry(e.target.value);
-                    }}
-                  ></input>
-                  <button onClick={updateInfo}>update</button>
-                </div>
-              </div>
+                    }}/>
+              </Form.Group>
+              <Button variant="primary"  onClick={updateInfo}>
+                update
+              </Button>
+            </Form>
             );
           })}
+    
+  </div>
+          </h5>
+         
+       
+       
       </div>
-      <h1>{message}</h1>
+
+     
     </div>
+
+    
+    
+  </div>
+
+
+
+
+
+
+   
   );
 };

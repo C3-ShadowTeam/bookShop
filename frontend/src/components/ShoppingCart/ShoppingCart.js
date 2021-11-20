@@ -18,6 +18,7 @@ import Payment from "../payment/payment";
 import "./ShoppingCart.css";
 
 export const ShoppingCart = () => {
+  window.scrollTo(0, 0)
   const [book, setBook] = useState([]);
   const [price, setPrice] = useState(0);
   const [status, setStatus] = useState();
@@ -164,7 +165,7 @@ export const ShoppingCart = () => {
             <div className="ll">{status}</div>
             <br />
             <div>
-              <Route exact path="/cart" render={() => <Payment />} />
+              <Route exact path="/cart" render={() => <Payment price={price}/>} />
             </div>
           </div>
         </div>

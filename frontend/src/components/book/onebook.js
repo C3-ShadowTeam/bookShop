@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./onebook.css";
 
 export const OneBook = () => {
+  window.scrollTo(0, 0)
   let idd = useParams().id;
   const [book, setBook] = useState();
   const [type, setType] = useState([]);

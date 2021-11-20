@@ -1,6 +1,7 @@
 import React from "react";
 
 export const About = () => {
+  window.scrollTo(0, 0)
   return (
     <div>
       <center>

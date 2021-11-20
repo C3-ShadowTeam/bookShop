@@ -9,6 +9,7 @@ import { Route, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
 export const AddCart = ({ bookId }) => {
+  window.scrollTo(0, 0)
   const history = useHistory();
   const [cart, setCart] = useState();
   const state = useContext(userContext);

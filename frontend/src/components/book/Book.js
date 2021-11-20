@@ -64,8 +64,8 @@ export const AllBook = () => {
                       >
                         {element.name}{" "}
                         <Route
-                          exact
-                          path="/home"
+                          
+                          path={"/" || "/home"}
                           render={() => <Favourite bookId={element._id} />}
                         />
                       </Card.Title>
@@ -98,15 +98,15 @@ export const AllBook = () => {
                         Price: {element.price} $
                       </Card.Text>
                       <Route
-                        exact
-                        path="/home"
+                        
+                        path={"/" || "/home"}
                         render={() => <AddCart bookId={element._id} />}
                       />
                       <Card.Text style={{ fontSize: "13px" }}>
                         <p>
                           <Route
-                            exact
-                            path="/home"
+                            
+                            path={"/" || "/home"}
                             render={() => (
                               <Rate
                                 bookId={element._id}

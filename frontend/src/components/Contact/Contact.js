@@ -4,6 +4,7 @@ import emailjs from "emailjs-com";
 import swal from "sweetalert";
 
 export const Contact = () => {
+  window.scrollTo(0, 0)
   const sendEmail = (e) => {
     console.log("working");
     e.preventDefault();

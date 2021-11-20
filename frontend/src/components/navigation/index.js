@@ -79,12 +79,7 @@ const Navigation = () => {
               Favourite
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="Link odai" to="/cart">
-              <MdAddShoppingCart size="2em" />{" "}
-              <div className="n">{cart.number}</div>
-            </Link>
-          </li>
+         
           <li className="nav-item">
             <Link to="/about">About</Link>
           </li>
@@ -94,6 +89,12 @@ const Navigation = () => {
           <li className="nav-item">
             <Link className="Link" to="/logOut">
               LogOut
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="Link odai" to="/cart">
+              <MdAddShoppingCart size="2em" />{" "}
+              <div className="n">{cart.number}</div>
             </Link>
           </li>
           <li className="nav-item">

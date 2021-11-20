@@ -1,0 +1,191 @@
+.userProfile {
+    width: 70%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #f0e7f2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    margin-bottom: 50px;
+  }
+  .profileImg {
+    width: 80%;
+    margin: auto;
+  }
+  .leftdiv {
+    width: 25%;
+    background-color: #72147E;
+    padding: 5px;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .leftdiv .imgProfile {
+    width: 100%;
+    height: 200px;
+    border-radius: 100%;
+    margin-top: 40px;
+    border: 1px rgb(12, 12, 12) solid;
+  }
+  
+  .imgAndInfo {
+    width: 60%;
+  
+    text-align: left;
+  
+    padding: 30px;
+    font-size: 18px;
+  }
+  
+  .middleDiv {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    text-align: left;
+  
+    margin-top: 30px;
+  }
+  
+  .middleDiv .details2 {
+    margin-bottom: 20px;
+  }
+  
+  .profileeeBtn {
+    width: 90px;
+    height: 40px;
+    border-radius: 3px;
+    background: #ffcd08;
+    border: 1px solid #ffcd08;
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+    transition: width 1s;
+    margin-top: 10px;
+  }
+  
+  .AllSubscribtion {
+    display: flex;
+  
+    width: 35%;
+  
+    align-content: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  
+  .restaurantSubscirption {
+    box-shadow: 4px 4px 4px 4px #989999;
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    font-size: 15px;
+    margin: auto 10px;
+    gap: 10px;
+    text-align: center;
+    background-color: rgb(44, 44, 44);
+    color: #fff;
+  }
+  
+  .progress {
+    width: 150px;
+    border: solid 2px yellow;
+  }
+  
+  .AllInfo {
+    display: flex;
+  }
+  
+  .details {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Goudy Bookletter 1911", sans-serif;
+    width: 250px;
+    float: left;
+  }
+  
+  .ExpierDate {
+    font-size: 15px;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+  
+  .EditInfo {
+    width: 85px;
+    height: 30px;
+    font-size: 10px;
+  
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: 100px;
+  }
+  
+  .titleSubscription {
+    position: relative;
+    top: -0.8em;
+    margin-left: 1em;
+    display: inline;
+    background-color: white;
+    width: 80px;
+    font-size: 13px;
+    padding-left: 5px;
+  }
+  
+  .mainDetails {
+    display: grid;
+    text-align: left;
+  
+    width: 250px;
+    right: auto;
+  }
+  
+  .inputModal {
+    border-radius: 3px;
+    border-bottom: solid rgb(56, 56, 55) 2px;
+    font-size: 15px;
+    margin-top: 15px;
+    height: 30px;
+  }
+  
+  .AllInputs {
+    display: grid;
+    gap: 5px;
+    width: 250px;
+    margin: auto;
+    padding-top: 10px;
+  }
+  
+  .closeButton {
+    width: 15px;
+    height: 30px;
+    margin-right: auto;
+  }
+  
+  .EnterInfo {
+    font-size: 15px;
+    width: 80px;
+    margin: auto;
+  }
+  
+  .inputModalDiseases {
+    border: solid rgb(118, 119, 116) 1px;
+    border-radius: 3px;
+    height: 100px;
+  }
+  
+  .lebelDiseases {
+    font-size: 17px;
+    margin-top: 15px;
+  }
+  
+  .rightDivv {
+    display: flex;
+  }
